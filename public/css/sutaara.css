@@ -167,8 +167,14 @@ a.s-item:hover{ border-color:var(--s-dot); }
   color:var(--s-dim); font-family:var(--font-mono); font-size:.72rem;
   letter-spacing:.1em; text-transform:uppercase; text-align:center; }
 
+/* capa das páginas internas: mais baixa */
+.s-hero.s-sub{ min-height:380px; }
+.s-sub .s-capa h1{ font-size:3rem; }
+
 @media (min-width:640px){
   .s-hero{ min-height:560px; }
+  .s-hero.s-sub{ min-height:420px; }
+  .s-sub .s-capa h1{ font-size:3.6rem; }
   .s-capa h1{ font-size:4.4rem; }
 }
 @media (min-width:900px){
