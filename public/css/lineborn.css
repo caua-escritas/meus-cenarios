@@ -1,0 +1,123 @@
+/* ==========================================================
+   lineborn.css — cores e páginas internas do sistema Lineborn
+   (Regras básicas, Criação de personagem e o card de texto da capa).
+   A capa em si fica em lineborn-capa.css.
+   Para mudar uma cor do Lineborn, mude só em :root (noite) ou
+   :root[data-theme="light"] (dia).
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Source+Sans+3:wght@400;600&display=swap');
+
+:root{
+  --ceu1:#091226; --ceu2:#13305e; --ceu3:#25688a;
+  --nuvem-a:.08; --texto:#f4f7fa; --dim:#b9c7d6; --linha:#ffffff;
+  --estrela:#E65CB8; --foco:#F08AD0; --chao:#04060a;
+  --forma-estrela:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%); /* formato da estrela: mude só aqui */
+  --nuvem:#ffffff; --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Source Sans 3', system-ui, sans-serif;
+}
+:root[data-theme="light"]{
+  --ceu1:#9fc3e6; --ceu2:#cfe1f2; --ceu3:#eef4f8;
+  --nuvem-a:.55; --texto:#0e1c30; --dim:#3a4d66; --linha:#10233d;
+  --estrela:#A3257F; --foco:#10233d; --chao:#0e1c30;
+}
+
+*{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body{ margin:0; background:var(--chao); color:#f4f7fa; font-family:var(--font-body); line-height:1.6; overflow-x:hidden; }
+:focus-visible{ outline:3px solid var(--foco); outline-offset:3px; border-radius:6px; }
+:root[data-theme="light"] .l-pagina :focus-visible{ outline-color:#F08AD0; }
+
+/* ---------- céu (cabeçalho) ---------- */
+.l-hero{
+  position:relative; isolation:isolate; overflow:hidden; color:var(--texto);
+  min-height:clamp(270px,40svh,350px);
+  padding:calc(22px + env(safe-area-inset-top,0px)) 24px 96px;
+  background:linear-gradient(180deg,var(--ceu1) 0%,var(--ceu2) 58%,var(--ceu3) 100%);
+}
+.l-hero::before{ /* grão quase imperceptível */
+  content:""; position:absolute; inset:0; z-index:3; pointer-events:none; opacity:.14; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.l-cena{ position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.l-cena .nuvem{ fill:#fff; fill-opacity:var(--nuvem-a); }
+.l-cena path.fio{ fill:none; stroke:var(--linha); stroke-linecap:round; vector-effect:non-scaling-stroke; }
+.l-cena .cabo{ stroke-width:1.5; opacity:.8; }
+.l-cena .trac{ stroke-width:1; opacity:.45; stroke-dasharray:3 6; animation:corre 1.4s linear infinite; }
+@keyframes corre{ to{ stroke-dashoffset:-18; } }
+.l-nos{ position:absolute; z-index:1; width:9px; height:9px; border-radius:50%; border:1.4px solid var(--linha); background:var(--ceu2); pointer-events:none; }
+.l-nos.a{ left:12%; top:5%; } .l-nos.b{ right:18%; top:7%; }
+
+.l-est{ position:absolute; z-index:1; background:var(--estrela); pointer-events:none;
+  clip-path:var(--forma-estrela);
+  animation:brilho 4.5s ease-in-out infinite; }
+.l-est.e1{ right:12%; top:34%; width:16px; height:16px; }
+.l-est.e2{ right:34%; top:14%; width:9px; height:9px; animation-duration:5.6s; animation-delay:-1.3s; }
+.l-est.e3{ right:6%; top:60%; width:10px; height:10px; animation-duration:3.9s; animation-delay:-2.4s; }
+.l-est.e4{ right:48%; top:70%; width:8px; height:8px; animation-duration:6.4s; animation-delay:-3.7s; }
+@keyframes brilho{ 0%,100%{ opacity:.78; transform:scale(.94); } 50%{ opacity:1; transform:scale(1.08); } }
+.l-luz{ position:absolute; z-index:1; top:6%; left:0; width:5px; height:5px; border-radius:50%; background:#fff;
+  box-shadow:0 0 8px 2px rgba(255,255,255,.5); opacity:0; pointer-events:none; animation:luzcabo 9s ease-in-out infinite; }
+@keyframes luzcabo{ 0%{ left:0; opacity:0; } 10%{ opacity:.9; } 90%{ opacity:.9; } 100%{ left:100%; opacity:0; } }
+
+.l-hero::after{ /* corte diagonal escuro na base do céu */
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:64px; z-index:2; background:var(--chao);
+  clip-path:polygon(0 62%,100% 0,100% 100%,0 100%); }
+
+.l-topo, .l-capa{ position:relative; z-index:4; width:100%; max-width:1040px; margin-inline:auto; }
+.l-topo{ margin-top:34px; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--dim); }
+.l-topo a{ color:var(--dim); text-decoration:none; }
+.l-topo a:hover{ color:var(--texto); }
+.l-topo .sep{ margin:0 .6em; opacity:.7; }
+.l-capa{ margin-top:18px; }
+.l-capa h1{ margin:0; font-family:var(--font-display); font-weight:300; font-size:clamp(2.1rem,7.4vw,3.1rem);
+  line-height:1.08; letter-spacing:.05em; text-wrap:balance; }
+
+/* ---------- chão (conteúdo) ---------- */
+.l-pagina{ position:relative; padding:8px 24px calc(40px + env(safe-area-inset-bottom,0px)); }
+.l-layout{ max-width:1040px; margin-inline:auto; display:grid; gap:28px; }
+
+.l-menu{ display:grid; padding:8px; border:1.2px solid rgba(255,255,255,.7); border-radius:28px;
+  background:rgba(19,48,94,.28); align-self:start; }
+.l-item{ display:flex; align-items:center; gap:10px; min-height:44px; padding:4px 14px; border-radius:12px;
+  color:#b9c7d6; text-decoration:none; font-size:1rem; letter-spacing:.14em; text-transform:uppercase; transition:color .2s; }
+.l-item:hover, .l-item[aria-current="page"]{ color:#fff; }
+.l-item::before{ content:""; flex:0 0 14px; width:14px; height:14px; background:#E65CB8; opacity:0; transform:translateX(-6px);
+  transition:opacity .2s, transform .2s;
+  clip-path:var(--forma-estrela); }
+.l-item:hover::before, .l-item[aria-current="page"]::before{ opacity:1; transform:none; }
+.l-item[aria-current="page"]{ font-weight:600; }
+
+.l-cards{ display:grid; }
+.l-card{ position:relative; margin-bottom:40px; padding:24px 24px 26px;
+  border:1px solid rgba(255,255,255,.24); border-radius:22px;
+  background:linear-gradient(180deg,rgba(19,48,94,.4),rgba(9,18,38,.55)); }
+.l-card:last-child{ margin-bottom:0; }
+.l-card:not(:last-child)::after{ content:""; position:absolute; left:36px; top:100%; height:40px; border-left:1px dashed rgba(255,255,255,.45); }
+.l-card h2{ margin:0 0 10px; font-family:var(--font-display); font-weight:400; font-size:1.55rem; letter-spacing:.03em; }
+.l-card p{ margin:0 0 14px; max-width:62ch; font-size:1.06rem; color:#dbe4ee; }
+.l-card p:last-child{ margin-bottom:0; }
+
+.l-lista{ margin:6px 0 16px; display:grid; gap:14px; }
+.l-lista div{ display:grid; gap:2px; }
+.l-lista dt{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:400; font-size:1.2rem; letter-spacing:.04em; color:#fff; }
+.l-lista dt::before{ content:""; flex:0 0 12px; width:12px; height:12px; background:#E65CB8;
+  clip-path:var(--forma-estrela); }
+.l-lista dd{ margin:0 0 0 22px; max-width:56ch; color:#dbe4ee; }
+
+.l-rodape{ max-width:1040px; margin:48px auto 0; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:#aab6c4; }
+
+@media (min-width:900px){
+  .l-hero{ padding-inline:max(24px,calc((100vw - 1040px)/2)); }
+  .l-topo, .l-capa{ max-width:none; margin-inline:0; }
+  .l-layout{ grid-template-columns:270px minmax(0,1fr); gap:40px; padding-top:8px; }
+  .l-menu{ position:sticky; top:20px; }
+}
+@media (prefers-reduced-motion:reduce){
+  .l-est, .l-luz, .l-cena .trac{ animation:none; }
+  .l-luz{ display:none; }
+  .l-item, .l-item::before{ transition:none; }
+}
+
+/* Visão geral: o card entra logo abaixo do corte da capa */
+.l-pagina.sem-topo{ padding-top:0; }
+.l-pagina.sem-topo .l-layout{ display:block; }
