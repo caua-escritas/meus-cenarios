@@ -290,3 +290,38 @@ body{ margin:0; background:var(--chao); color:#f4f7fa; font-family:var(--font-bo
 
 /* a terceira Derrota: anel duplo (não depende só da cor) */
 .l-vaga.ultima{ box-shadow:0 0 0 3px #0b1426, 0 0 0 4.5px #ef7a68; margin-left:4px; }
+
+/* ---------- livro: cada etapa é uma página que se vira de lado (js/lineborn-livro.js) ---------- */
+.livro-on .livro{ position:relative; }
+.livro-on .folha[hidden]{ display:none; }
+.livro-on .folha .l-etapa:first-child{ margin-top:14px; }
+.livro-on .folha.vem-d{ animation:vemD .45s cubic-bezier(.25,.7,.3,1) backwards; }
+.livro-on .folha.vem-e{ animation:vemE .45s cubic-bezier(.25,.7,.3,1) backwards; }
+@keyframes vemD{ from{ opacity:0; transform:translateX(48px); } to{ opacity:1; transform:none; } }
+@keyframes vemE{ from{ opacity:0; transform:translateX(-48px); } to{ opacity:1; transform:none; } }
+.livro-on.js-revela .l-card:not(.visto), .livro-on.js-revela .l-etapa:not(.visto){ opacity:1; transform:none; }
+.livro-nav{ position:sticky; bottom:calc(12px + env(safe-area-inset-bottom,0px)); z-index:20; display:flex; align-items:center; justify-content:space-between; gap:8px; max-width:340px; margin:28px auto 0; padding:5px 7px; border:1px solid rgba(255,255,255,.3); border-radius:999px; background:rgba(9,18,38,.86); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); box-shadow:0 10px 24px rgba(0,0,0,.45); }
+.livro-nav button{ cursor:pointer; }
+.livro-nav .ant, .livro-nav .prox{ flex:0 0 38px; height:38px; border:1px solid rgba(255,255,255,.4); border-radius:50%; background:transparent; color:#fff; font-size:1rem; transition:background .2s,border-color .2s; }
+.livro-nav .prox{ background:#E65CB8; border-color:#E65CB8; color:#0b0f14; }
+.livro-nav .ant:disabled, .livro-nav .prox:disabled{ opacity:.3; cursor:default; }
+.livro-nav .meio{ flex:1; min-width:0; display:grid; justify-items:center; gap:3px; }
+.livro-nav .rot{ max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:#dbe4ee; }
+.livro-nav .pontos{ display:flex; align-items:center; gap:2px; }
+.livro-nav .pontos button{ position:relative; width:22px; height:18px; padding:0; border:0; background:transparent; }
+.livro-nav .pontos button::before{ content:""; position:absolute; left:50%; top:50%; width:6px; height:6px; margin:-3px 0 0 -3px; border-radius:50%; background:rgba(255,255,255,.35); transition:all .25s; }
+.livro-nav .pontos button.on::before{ width:12px; height:12px; margin:-6px 0 0 -6px; border-radius:0; background:#E65CB8; clip-path:var(--forma-estrela); }
+@media (prefers-reduced-motion:reduce){ .livro-on .folha.vem-d, .livro-on .folha.vem-e{ animation:none; } .livro-nav *{ transition:none; } }
+
+/* ---------- jeito de livro de contos (mantendo o céu, o cobalto e os fios) ---------- */
+/* letra capitular, primeira linha em versalete, texto justificado e número de página */
+.livro-on .l-card, .livro-on .l-indice{ position:relative; box-shadow:0 12px 26px rgba(0,0,0,.35); }
+.livro-on .folha .l-cards .l-card:first-child > h2 + p::first-letter{ float:left; margin:.05em .1em 0 0; font-family:var(--font-display); font-weight:400; font-size:2.3em; line-height:.8; color:#F08AD0; }
+.livro-on .folha .l-cards .l-card:first-child > h2 + p::first-line{ font-variant:small-caps; letter-spacing:.04em; color:#fff; }
+@media (min-width:700px){ .livro-on .l-card > p{ text-align:justify; hyphens:auto; -webkit-hyphens:auto; } }
+.folio{ display:flex; align-items:center; justify-content:center; gap:14px; margin:28px 0 0; color:#b9c7d6; font-family:var(--font-display); font-size:1rem; letter-spacing:.1em; }
+.folio i{ width:9px; height:9px; background:#E65CB8; clip-path:var(--forma-estrela); }
+.folio span{ min-width:1.2em; text-align:center; }
+.folio::before, .folio::after{ content:""; width:48px; border-top:1px dashed rgba(255,255,255,.35); }
+.folio::before{ order:-2; margin-right:0; } .folio::after{ order:2; }
+.folio i:first-of-type{ order:-1; } .folio i:last-of-type{ order:1; }
