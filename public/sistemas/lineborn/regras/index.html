@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Regras básicas · Lineborn</title>
+  <meta name="description" content="Lineborn: Regras básicas.">
+  <link rel="stylesheet" href="../../../css/lineborn.css">
+</head>
+<body>
+
+  <header class="l-hero">
+    <nav class="l-topo" aria-label="Você está em">
+      <a href="../../../#sistemas">Sistemas</a><span class="sep">&rsaquo;</span><a href="../">Lineborn</a><span class="sep">&rsaquo;</span>Regras básicas
+    </nav>
+    <div class="l-capa">
+      <h1>Regras básicas</h1>
+    </div>
+  </header>
+
+  <div class="l-pagina">
+    <div class="l-layout">
+
+      <nav class="l-menu" aria-label="Seções do Lineborn">
+        <a class="l-item" href="../">Visão geral</a>
+        <a class="l-item" aria-current="page" href="./">Regras básicas</a>
+        <a class="l-item" href="../personagem/">Criação de personagem</a>
+      </nav>
+
+      <main>
+
+        <nav class="l-indice" aria-label="Etapas desta página">
+          <span class="rotulo">Etapas</span>
+          <div class="et">
+            <a class="tit" href="#rolagem"><span>01</span>Rolagem</a>
+            <p class="sub"><a href="#teste">O Teste</a><a href="#desfechos">Os quatro desfechos</a><a href="#adaptacao">Guia de Adaptação</a><a href="#bonus-critico">Bônus e Crítico</a></p>
+          </div>
+          <div class="et">
+            <a class="tit" href="#consequencias"><span>02</span>Consequências</a>
+            <p class="sub"><a href="#pv">PV e Saúde</a><a href="#derrota">Derrota</a><a href="#oferta">Oferta de Derrota</a><a href="#dividas">Dívidas</a><a href="#morte">Morte</a></p>
+          </div>
+          <div class="et">
+            <a class="tit" href="#atributos-etapa"><span>03</span>Atributos</a>
+          </div>
+          <div class="et">
+            <a class="tit" href="#dificuldade"><span>04</span>Dificuldade</a>
+          </div>
+          <div class="et">
+            <a class="tit" href="#destino-etapa"><span>05</span>Destino</a>
+          </div>
+          <div class="et">
+            <a class="tit" href="#combate"><span>06</span>Combate</a>
+            <p class="sub"><a href="#iniciativa">Iniciativa e turno</a><a href="#turno">Estrutura do turno</a><a href="#atacar">Atacar</a><a href="#adaptacao-ataque">Adaptação em ataque</a><a href="#confianca">Falha e Confiança</a><a href="#inimigo">O inimigo ataca</a><a href="#zero-pv">Chegar a 0 PV</a></p>
+          </div>
+        </nav>
+
+        <!-- ================= ETAPA 1: ROLAGEM ================= -->
+        <div class="l-etapa" id="rolagem">
+          <span class="ordem" aria-hidden="true">01</span>
+          <div><span class="rotulo">Etapa 1</span><h2>Rolagem</h2></div>
+        </div>
+
+        <section class="l-cards" aria-label="Rolagem">
+
+          <article class="l-card" id="teste">
+            <h2>O Teste</h2>
+            <p>Quando o resultado de uma ação é incerto e importa, o jogador faz um <strong>Teste</strong>.</p>
+            <ol>
+              <li>Lança <strong>3d6</strong>: dois <strong>verdes</strong> (dados normais) e um <strong>azul</strong> (dado de Adaptação).</li>
+              <li><strong>Escolhe 2 dos 3 dados</strong> e soma os valores.</li>
+              <li>Soma o <strong>Atributo</strong> relacionado à ação (Corpo, Agilidade, Intelecto ou Vontade) e eventuais bônus.</li>
+              <li>Compara com a <strong>CD</strong> (Classe de Dificuldade) definida pelo mestre.</li>
+            </ol>
+            <div class="l-nota"><p>A escolha dos dados é feita <strong>depois da rolagem</strong>. É isso que dá ao jogador o poder de moldar o resultado.</p></div>
+            <p>Teste a rolagem aqui mesmo: informe o bônus, lance os dados e toque em dois dos três.</p>
+            <div class="l-dados" id="dados">
+              <h4>Lançador de dados</h4>
+              <div class="linha"><span class="rot">Seu bônus</span>
+                <div class="passos"><button type="button" class="menos" aria-label="Diminuir bônus">&minus;</button><output aria-live="polite">2</output><button type="button" class="mais" aria-label="Aumentar bônus">+</button></div>
+              </div>
+              <button type="button" class="rolar">Lançar dados</button>
+              <div class="mesa"></div>
+              <p class="dica">Os dados aparecem aqui.</p>
+              <div class="res" hidden aria-live="polite"></div>
+            </div>
+          </article>
+
+          <article class="l-card" id="desfechos">
+            <h2>Os quatro desfechos</h2>
+            <div class="l-grid">
+              <div class="l-bloco verde simb"><svg class="simbolo" viewBox="0 0 64 24" aria-hidden="true"><path d="M2 19 C22 19 30 7 48 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M56 1 L58 5.5 L63 7 L58 8.5 L56 13 L54 8.5 L49 7 L54 5.5Z" fill="currentColor"/></svg><h4>Realização</h4><p>Os dois verdes alcançam a CD. A ação acontece exatamente como o jogador pretendia.</p></div>
+              <div class="l-bloco azul simb"><svg class="simbolo" viewBox="0 0 64 24" aria-hidden="true"><path d="M2 12 H20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M20 12 C30 12 30 4 40 4 H60" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M20 12 C30 12 30 20 40 20 H50" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 4"/><circle cx="61" cy="4" r="2.2" fill="currentColor"/></svg><h4>Adaptação</h4><p>Só funciona usando o azul (um verde + azul). O objetivo não sai como planejado, mas surge um resultado alternativo útil, construído em conversa entre jogador e mestre.</p></div>
+              <div class="l-bloco ouro simb"><svg class="simbolo" viewBox="0 0 64 24" aria-hidden="true"><path d="M2 12 H22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="36" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="48 15" transform="rotate(-40 36 12)"/><circle cx="36" cy="12" r="2.4" fill="currentColor"/></svg><h4>Preservação</h4><p>Nenhuma combinação alcança a CD. O jogador pode gastar <strong>1 ponto de Destino</strong> para evitar a consequência da falha.</p></div>
+              <div class="l-bloco falha simb"><svg class="simbolo" viewBox="0 0 64 24" aria-hidden="true"><path d="M2 12 H32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M40 12 H46 M52 12 H54" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".6"/><path d="M33 7 L36 17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><h4>Falha com consequência</h4><p>Nenhuma combinação alcança a CD e o Destino não é gasto. O mestre aplica uma consequência.</p></div>
+            </div>
+            <p>Se os dois verdes alcançam a CD, o resultado é sempre Realização, mesmo que a combinação com o azul também alcance. A Preservação evita a consequência da falha, mas não a transforma em sucesso.</p>
+          </article>
+
+          <article class="l-card" id="adaptacao">
+            <h2>Guia de Adaptação</h2>
+            <p>Adaptação é uma <strong>conversa</strong> entre jogador e mestre. Ela tem duas formas.</p>
+            <p><strong>O jogador muda o rumo da ação.</strong> Ele atravessa uma ponte. Na primeira rodada passa sem problemas. Na segunda, a ponte é atacada e o resultado sai em Adaptação: ele não cai, mas se agarra a uma viga e termina a travessia pendurado, em outro ponto.</p>
+            <p><strong>O mestre assume a adaptação.</strong> O jogador diz &ldquo;vou pular a janela&rdquo; e o resultado sai em Adaptação. O mestre decide: o personagem pula, mas deixa algo para trás, faz barulho ou cai em um lugar pior.</p>
+            <div class="l-nota">
+              <p><strong>Princípios para o mestre.</strong></p>
+              <ul>
+                <li>A ação <strong>continua acontecendo</strong>. Adaptação nunca é &ldquo;não&rdquo;.</li>
+                <li>O resultado deve ser <strong>útil e diferente</strong>, nunca punição disfarçada.</li>
+                <li>Prefira <strong>complicações e custos</strong> a negar o objetivo.</li>
+                <li>Em dúvida, <strong>pergunte ao jogador</strong> o que ele propõe antes de decidir.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="l-card" id="bonus-critico">
+            <h2>Bônus e Crítico</h2>
+            <p><strong>Bônus.</strong> Habilidades, equipamentos e circunstâncias dão +1 a +3. O <strong>total de bônus por rolagem é limitado a +3</strong>, e raramente um bônus isolado passa de +1.</p>
+            <p><strong>Crítico.</strong> Quando <strong>dois dados mostram 6</strong> (de qualquer cor), o teste é um Crítico, cerca de 7,4% das vezes.</p>
+            <ul>
+              <li>Em um teste comum, a ação foi realizada <strong>com perfeição</strong>. Mestre e jogador decidem juntos o que isso rende, forçando a criatividade de ambos.</li>
+              <li>Em um <strong>ataque com arma</strong>, o dano é <strong>dobrado</strong>.</li>
+            </ul>
+          </article>
+
+        </section>
+
+        <!-- ================= ETAPA 2: CONSEQUÊNCIAS ================= -->
+        <div class="l-etapa" id="consequencias">
+          <span class="ordem" aria-hidden="true">02</span>
+          <div><span class="rotulo">Etapa 2</span><h2>Consequências</h2></div>
+        </div>
+
+        <section class="l-cards" aria-label="Consequências">
+
+          <article class="l-card" id="pv">
+            <h2>PV e Saúde</h2>
+            <div class="l-stats">
+              <div class="l-stat"><b>10 + Corpo + 5</b><span>PV no nível 1</span></div>
+              <div class="l-stat"><b>+ Corpo + 3</b><span>por nível acima do 1º</span></div>
+            </div>
+            <p><strong>Saúde:</strong> Saudável, Ferido e Crítico. É o estado de saúde do personagem, não uma condição aplicada. O personagem está <strong>Ferido</strong> com metade dos PV ou menos. Ferido não tem efeito próprio: serve de medida para outras regras (&ldquo;se estiver Ferido, sofre isso&rdquo;). Ao chegar a 0 PV, entra em <strong>Estado Crítico</strong>.</p>
+            <h3>Recuperação de PV</h3>
+            <p>Um <strong>descanso incompleto</strong> (curto, de dia ou num lugar péssimo) recupera <strong>metade dos PV</strong>. Um <strong>descanso completo</strong> (por exemplo, uma noite bem dormida) recupera <strong>todos os PV</strong>. Também há cura por habilidades, magias, poções, itens e outros meios.</p>
+          </article>
+
+          <article class="l-card" id="derrota">
+            <h2>Derrota</h2>
+            <p><strong>Derrota</strong> é um revés significativo na trajetória do personagem. Não vem só de 0 PV: pode ser um fracasso pessoal, narrativo ou uma perda importante. Toda falha de teste tem consequência, mas só acontecimentos significativos marcam Derrota. Perder uma luta mas proteger quem precisava não precisa ser Derrota; vencer uma luta mas deixar a própria seita ser destruída pode ser.</p>
+            <div class="l-vagas" role="img" aria-label="Três espaços de Derrota; a partir do terceiro, o personagem pode morrer"><span class="l-vaga">1</span><span class="l-vaga">2</span><span class="l-vaga ultima">3</span></div>
+            <p><strong>Três espaços de Derrota.</strong> O personagem pode acumular até três Derrotas. Ao chegar à terceira, a morte deixa de ser só uma ameaça: a partir dali, ele realmente pode morrer.</p>
+            <p>Toda Derrota deixa uma <strong>consequência duradoura</strong>: ferimento persistente, dívida ou obrigação, vínculo ou inimigo, alteração espiritual, consequência social. Não é só penalidade numérica: é algo que o personagem precisa enfrentar, compreender, reparar ou superar. Há um único contador de Derrotas; o que varia é a natureza da Derrota.</p>
+            <p><strong>Curar uma Derrota</strong> exige ir atrás: se for física, um médico; se for mágica, alguém ligado àquela magia; se for moral, uma subquest. Normalmente a Derrota sai depois de um arco, e o espaço de Derrota fica livre.</p>
+          </article>
+
+          <article class="l-card" id="oferta">
+            <h2>Oferta de Derrota</h2>
+            <p>Sempre que o personagem está prestes a sofrer uma Derrota, o mestre faz a oferta. Ao cair a 0 PV, ela acontece <strong>no momento da queda</strong>. Se o personagem não pede uma oferta, ele se encontra com algo, e o que e como depende do mestre.</p>
+            <blockquote class="l-citacao"><p>&ldquo;Você foi derrotado. O fardo foi grande demais para você. Decide encarar seu fracasso de frente ou procura um meio de salvar sua pele, sabendo que um preço será cobrado.&rdquo;</p></blockquote>
+            <div class="l-grid">
+              <div class="l-bloco falha"><h4>Aceitar a Derrota</h4><p>Marca uma Derrota. O personagem fica fora do combate até a próxima cena. Um aliado o estabiliza e ele fica com <strong>1 PV</strong>.</p></div>
+              <div class="l-bloco ouro"><h4>Escapar com uma dívida</h4><p>Não marca a Derrota agora. O personagem volta na hora com <strong>metade dos PV</strong> (arredondando para baixo), recebe uma <strong>ajuda externa muito grande</strong> e segue no combate, mas assume uma dívida sempre alta, nunca gratuita.</p></div>
+            </div>
+          </article>
+
+          <article class="l-card" id="dividas">
+            <h2>Dívidas</h2>
+            <p><strong>O que é.</strong> A dívida é a alternativa a aceitar a Derrota. Quando o jogador é derrotado, ele pode encarar a Derrota de frente ou fazer uma dívida: volta com <strong>metade dos PV</strong>, não sofre a Derrota e recebe uma <strong>ajuda externa muito grande</strong>. Em troca, fica em dívida com uma entidade, uma criatura ou algo do tipo.</p>
+            <p><strong>De onde ela vem.</strong> A origem é vaga. O mestre pode oferecer a dívida ao jogador. O personagem pode ser devoto de um deus e ganhar uma dívida. Ele também pode estar em um lugar onde uma entidade surge e soma à história.</p>
+            <p><strong>Como se paga.</strong> A dívida precisa ser paga de alguma forma. A entidade entra em contato com o jogador pedindo o pagamento. Se ele não pagar, algo vai acontecer com ele em algum momento, porque o destino sempre cobra.</p>
+            <p><strong>Como a cobrança chega.</strong> A dívida pode <strong>cobrar depois</strong> (por exemplo, numa luta decisiva surge um inimigo com uma arma diferente, que conhece as técnicas do personagem) ou <strong>gerar uma missão</strong>, a dívida sofrida: a entidade entrega uma missão, cumprida narrativamente, sem perda de Atributo.</p>
+            <p><strong>Acúmulo.</strong> Normalmente o personagem tem uma dívida por vez. Uma segunda dívida só é possível com uma entidade maligna, porque as entidades benignas não cobram duas dívidas. Quem acumula mais de uma fica com fama de mau devedor, o que traz algo muito pior.</p>
+            <div class="l-nota ouro"><p><strong>Sobre as dívidas.</strong> Dependem do mestre: jogadores diferentes atraem entidades diferentes. Quem clama por um deus tem o desejo atendido, mas fica em dívida e deve um favor. Quem clama a qualquer um paga justamente quando menos espera. A dívida não é punitiva por si: só pesa se o personagem se recusar a cumpri-la. Dívidas com entidades malignas pedem coisas horrendas, como matar um inocente. Se o personagem recusa, a cobrança vem: um espadachim que se negou a matar um inocente para um demônio vê, um mês depois, a dívida ser cobrada com sangue.</p></div>
+          </article>
+
+          <article class="l-card" id="morte">
+            <h2>Morte</h2>
+            <div class="l-nota falha"><p>O personagem pode morrer. Com <strong>três Derrotas</strong> não há mais para onde correr: não existe dívida nem ajuda, só o personagem e a sorte. Ao cair a 0 PV, ele faz <strong>um teste de Corpo por turno</strong> (CD 10). <strong>Dois sucessos seguidos</strong> superam a crise e ele sobrevive com 1 PV. <strong>Dois fracassos seguidos</strong> significam morte definitiva. Quem desiste ao cair também pode morrer.</p></div>
+          </article>
+
+        </section>
+
+        <!-- ================= ETAPA 3: ATRIBUTOS ================= -->
+        <div class="l-etapa" id="atributos-etapa">
+          <span class="ordem" aria-hidden="true">03</span>
+          <div><span class="rotulo">Etapa 3</span><h2>Atributos</h2></div>
+        </div>
+
+        <section class="l-cards" aria-label="Atributos">
+
+          <article class="l-card" id="atributos">
+            <h2>Atributos</h2>
+            <p>Corpo, Agilidade, Intelecto e Vontade são <strong>números somados</strong> ao teste.</p>
+            <div class="l-stats">
+              <div class="l-stat"><b>2, 1, 1, 1</b><span>distribuição no nível 1</span></div>
+              <div class="l-stat"><b>+1 em dois</b><span>níveis 5, 10 e 15</span></div>
+              <div class="l-stat"><b>+5</b><span>teto de Atributo</span></div>
+              <div class="l-stat"><b>15</b><span>nível máximo</span></div>
+            </div>
+          </article>
+
+        </section>
+
+        <!-- ================= ETAPA 4: DIFICULDADE ================= -->
+        <div class="l-etapa" id="dificuldade">
+          <span class="ordem" aria-hidden="true">04</span>
+          <div><span class="rotulo">Etapa 4</span><h2>Dificuldade</h2></div>
+        </div>
+
+        <section class="l-cards" aria-label="Dificuldade">
+
+          <article class="l-card" id="cds">
+            <h2>Classes de Dificuldade</h2>
+            <div class="l-rolagem"><table class="l-tabela">
+              <thead><tr><th>CD</th><th>Dificuldade</th></tr></thead>
+              <tbody>
+                <tr><td>8</td><td>Fácil</td></tr>
+                <tr><td>10</td><td>Moderada</td></tr>
+                <tr><td>12</td><td>Difícil</td></tr>
+                <tr><td>14</td><td>Muito difícil (níveis altos)</td></tr>
+                <tr><td>16</td><td>Extrema (níveis altos)</td></tr>
+              </tbody>
+            </table></div>
+            <p>No combate, a <strong>Defesa</strong> do alvo é a CD do ataque, e varia de inimigo para inimigo.</p>
+          </article>
+
+        </section>
+
+        <!-- ================= ETAPA 5: DESTINO ================= -->
+        <div class="l-etapa" id="destino-etapa">
+          <span class="ordem" aria-hidden="true">05</span>
+          <div><span class="rotulo">Etapa 5</span><h2>Destino</h2></div>
+        </div>
+
+        <section class="l-cards" aria-label="Destino">
+
+          <article class="l-card" id="destino">
+            <h2>Destino</h2>
+            <div class="l-stats">
+              <div class="l-stat"><b>10</b><span>pontos de Destino</span></div>
+              <div class="l-stat"><b>+10</b><span>descanso completo</span></div>
+              <div class="l-stat"><b>+5</b><span>descanso incompleto</span></div>
+            </div>
+            <p>Usos: habilidades de Destino, habilidades de ascensão e <strong>Preservação</strong> (1 ponto).</p>
+            <div class="l-nota ouro"><p>O Destino é também o <strong>Tema</strong> do personagem. A habilidade de Destino segue as regras de sempre, mas <strong>não tem nome predefinido</strong>: o jogador escolhe o nome e descreve como ela se manifesta.</p></div>
+          </article>
+
+        </section>
+
+        <!-- ================= ETAPA 6: COMBATE ================= -->
+        <div class="l-etapa" id="combate">
+          <span class="ordem" aria-hidden="true">06</span>
+          <div><span class="rotulo">Etapa 6</span><h2>Combate</h2><p>Mesmo teste, mesma lógica. O que muda é o que a Realização, a Adaptação e a falha rendem numa luta.</p></div>
+        </div>
+
+        <section class="l-cards" aria-label="Combate">
+
+          <article class="l-card" id="iniciativa">
+            <h2>Iniciativa e turno</h2>
+            <ul>
+              <li><strong>Iniciativa:</strong> cada combatente rola <span class="l-mono">1d6 + Agilidade</span>. A ordem vai do maior para o menor.</li>
+              <li>Habilidades podem alterar a Iniciativa (ex.: Trapaça).</li>
+              <li>A estrutura do turno está logo a seguir.</li>
+            </ul>
+          </article>
+
+          <article class="l-card" id="turno">
+            <h2>Estrutura do turno</h2>
+            <p>A ordem vem da Iniciativa (<span class="l-mono">1d6 + Agilidade</span>, do maior para o menor). Em cada turno o personagem tem:</p>
+            <div class="l-grid tres">
+              <div class="l-bloco"><h4>Ação principal</h4><p>Atacar ou usar uma habilidade. Pode ser gasta para fazer uma ação de movimento.</p></div>
+              <div class="l-bloco verde"><h4>Ação de movimento</h4><p>Se mover, sacar um item, escalar, pular, consumir um consumível.</p></div>
+              <div class="l-bloco ouro"><h4>Reação</h4><p>Ativada por alguma habilidade, como levantar o escudo ou contra-magia.</p></div>
+            </div>
+          </article>
+
+          <article class="l-card" id="atacar">
+            <h2>Atacar</h2>
+            <p>O ataque usa o mesmo <a href="#teste">Teste</a>, contra a <strong>Defesa</strong> do alvo. A Defesa é a CD do ataque e varia de inimigo para inimigo.</p>
+            <div class="l-stats">
+              <div class="l-stat"><b>3</b><span>dano, arma de uma mão</span></div>
+              <div class="l-stat"><b>7</b><span>dano, arma de duas mãos</span></div>
+              <div class="l-stat"><b>×2</b><span>dano em Crítico</span></div>
+            </div>
+            <p><strong>Duas armas:</strong> soma os danos e custa a ação de movimento. Não custa nada se uma delas for leve.</p>
+          </article>
+
+          <article class="l-card" id="adaptacao-ataque">
+            <h2>Adaptação em ataque</h2>
+            <p>A Adaptação não causa dano, mas o jogador faz uma <strong>ação de movimento alternativa</strong>: se mover, sacar um item, escalar, pular ou consumir um consumível. Consumir um consumível é uma ação de movimento.</p>
+          </article>
+
+          <article class="l-card" id="confianca">
+            <h2>Falha e Confiança</h2>
+            <p>Quando o jogador falha num teste de ataque, o inimigo ganha <strong>+1 de Confiança</strong> no ataque.</p>
+            <div class="l-escala" role="img" aria-label="Confiança de 0 a 5"><i class="no ini"></i><i class="no">1</i><i class="no">2</i><i class="no">3</i><i class="no">4</i><i class="no fim">5</i><span>acumula até +5</span></div>
+            <ul>
+              <li>A Confiança <strong>soma entre todos os jogadores</strong>.</li>
+              <li>O mestre usa <strong>tudo de uma vez</strong>, quando quiser.</li>
+            </ul>
+          </article>
+
+          <article class="l-card" id="inimigo">
+            <h2>O inimigo ataca</h2>
+            <p>O inimigo rola <strong>2d6 ou 3d6</strong> contra a <strong>Defesa do jogador</strong> e acerta se passar. O jogador não rola defesa.</p>
+            <div class="l-nota"><p><strong>Defesa do jogador</strong> = armadura + Agilidade (quando couber).</p></div>
+          </article>
+
+          <article class="l-card" id="zero-pv">
+            <h2>Chegar a 0 PV</h2>
+            <p>Ao cair a 0 PV acontece a <strong>Oferta de Derrota</strong> (ver <a href="#oferta">Oferta de Derrota</a>).</p>
+          </article>
+
+        </section>
+
+      </main>
+
+    </div>
+    <footer class="l-rodape">Mamoru</footer>
+  </div>
+
+<script src="../../../js/tema.js" defer></script>
+<script src="../../../js/lineborn-ceu.js" defer></script>
+<script src="../../../js/lineborn-dados.js" defer></script>
+<script src="../../../js/lineborn-revela.js" defer></script>
+<script src="../../../js/lineborn-livro.js" defer></script>
+</body>
+</html>
